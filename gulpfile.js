@@ -5,15 +5,12 @@ var rename = require("gulp-rename")
 var sourcemaps = require("gulp-sourcemaps")
 
 gulp.task("es6", function () {
-		return gulp.src("./es6/*.es6")
+		return gulp.src("./es6/*.js")
 			.pipe(babel({
 							presets: ['es2015'],
 							sourceMaps: "inline",
 						}))
 			.on("error", swallowError)
-			.pipe(rename({
-							extname: ".js"
-						}))
 			.pipe(gulp.dest("./static/js/"))
 })
 
@@ -30,7 +27,7 @@ gulp.task("scss", function () {
 
 gulp.task("watch", ["es6", "scss"], function () {
 		gulp.watch("./scss/*.scss", ['scss'])
-		gulp.watch("./es6/*.es6", ['es6'])
+		gulp.watch("./es6/*.js", ['es6'])
 })
 
 // watch by default
