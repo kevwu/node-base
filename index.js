@@ -4,7 +4,7 @@ let http = require("http")
 let path = require("path")
 let fs = require("fs")
 
-app.use(express.static(path.join(__dirname,"static")));
+app.use("/static", express.static("static"))
 
 let server = http.createServer(app).listen(8080, function()
 {
@@ -13,6 +13,5 @@ let server = http.createServer(app).listen(8080, function()
 
 
 app.get("/", (req, res) => {
-        res.sendFile("static/index.html")
+        res.sendFile(path.join(__dirname,"index.html"))
 })
-
