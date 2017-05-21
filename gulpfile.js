@@ -4,8 +4,8 @@ var babel = require("gulp-babel")
 var rename = require("gulp-rename")
 var sourcemaps = require("gulp-sourcemaps")
 
-gulp.task("es6", function () {
-		return gulp.src("./es6/*.js")
+gulp.task("js", function () {
+		return gulp.src("./js/*.js")
 			.pipe(babel({
 							presets: ['es2015'],
 							sourceMaps: "inline",
@@ -25,9 +25,9 @@ gulp.task("scss", function () {
 			.pipe(gulp.dest("./static/css/"))
 })
 
-gulp.task("watch", ["es6", "scss"], function () {
+gulp.task("watch", ["js", "scss"], function () {
 		gulp.watch("./scss/*.scss", ['scss'])
-		gulp.watch("./es6/*.js", ['es6'])
+		gulp.watch("./js/*.js", ['js'])
 })
 
 // watch by default
