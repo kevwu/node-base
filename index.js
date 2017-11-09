@@ -1,17 +1,18 @@
-let express = require("express")
-let app = express()
-let http = require("http")
-let path = require("path")
-let fs = require("fs")
+const express = require("express")
+const app = express()
 
-app.use("/static", express.static("static"))
-
-let server = http.createServer(app).listen(8080, function()
-{
-        console.log("HTTP server listening.");
-})
-
+const path = require("path")
 
 app.get("/", (req, res) => {
-        res.sendFile(path.join(__dirname,"index.html"))
+	res.sendFile(path.join(__dirname, 'static/index.html'))
 })
+
+app.get("/bundle.js", (req, res) => {
+	res.sendFile(path.join(__dirname, 'static/bundle.js'))
+})
+
+app.get("/bundle.css", (req, res) => {
+	res.sendFile(path.join(__dirname, 'static/bundle.css'))
+})
+
+app.listen(3000, () => {console.log("HTTP server listening")})

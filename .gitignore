@@ -1,9 +1,5 @@
-# node libraries
+.idea/
 node_modules/
 
-# JetBrains IDE folder
-.idea/
-
-# rendered files, but allow libraries
-static/*
-!static/lib/
+static/bundle.js
+static/bundle.css
